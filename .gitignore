@@ -5,3 +5,10 @@
 /logs/
 /backlogs/
 /log/
+/.git/
+
+/.settings/
+/.svn/
+/_svn/
+.project
+.classpath
