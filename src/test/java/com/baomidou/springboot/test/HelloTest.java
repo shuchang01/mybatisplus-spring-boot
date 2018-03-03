@@ -5,7 +5,9 @@ public class HelloTest {
 //        MybatisPlusAutoConfiguration.class
 //        SqlReservedWords.class
 //        XMLMapperBuilder
+//        MapperProxy
+//        MapperProxyFactory
 
-
+//        org.apache.ibatis.executor.CachingExecutor.query()
     }
 }

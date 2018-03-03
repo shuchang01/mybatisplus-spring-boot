@@ -1,7 +1,7 @@
 package com.baomidou.springboot.handler;
 
 import com.baomidou.mybatisplus.mapper.MetaObjectHandler;
-import com.baomidou.springboot.Application;
+import com.baomidou.springboot.MybatisPlusDemoApplication;
 import org.apache.ibatis.reflection.MetaObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,7 +11,7 @@ import org.slf4j.LoggerFactory;
  */
 //@Component
 public class MyMetaObjectHandler extends MetaObjectHandler {
-    protected final static Logger logger = LoggerFactory.getLogger(Application.class);
+    protected final static Logger logger = LoggerFactory.getLogger(MybatisPlusDemoApplication.class);
 
     @Override
     public void insertFill(MetaObject metaObject) {

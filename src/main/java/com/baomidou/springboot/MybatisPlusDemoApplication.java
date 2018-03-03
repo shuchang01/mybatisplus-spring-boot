@@ -13,8 +13,8 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  */
 @EnableTransactionManagement
 @SpringBootApplication
-public class Application {
-    private final static Logger logger = LoggerFactory.getLogger(Application.class);
+public class MybatisPlusDemoApplication {
+    private final static Logger logger = LoggerFactory.getLogger(MybatisPlusDemoApplication.class);
 
     /**
      * <p>
@@ -35,7 +35,8 @@ public class Application {
      * </p>
      */
     public static void main(String[] args) {
-        SpringApplication app = new SpringApplication(Application.class);
+        args = new String[]{"--spring.profiles.active=dev"};
+        SpringApplication app = new SpringApplication(MybatisPlusDemoApplication.class);
         app.setBannerMode(Banner.Mode.OFF);
         app.run(args);
         logger.info("mybatisplus-spring-boot project started success!!!");

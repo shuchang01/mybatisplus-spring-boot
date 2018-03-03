@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<include resource="org/springframework/boot/logging/logback/base.xml" />
+    <!--定义日志文件的存储地址 勿在 LogBack 的配置中使用相对路径 -->
+    <property name="LOG_HOME" value="backlogs" />
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <Pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{120} - %msg%n</Pattern>
+        </layout>
+    </appender>
+
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_HOME}/sh-api.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!--日志文件输出的文件名 -->
+            <FileNamePattern>${LOG_HOME}/sh-api.log.%d{yyyy-MM-dd}.log.zip</FileNamePattern>
+            <MaxHistory>7</MaxHistory>
+        </rollingPolicy>
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符 -->
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{120} - %msg%n</pattern>
+        </layout>
+    </appender>
+
+    <appender name="ERRORFILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_HOME}/errors.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!--日志文件输出的文件名 -->
+            <FileNamePattern>${LOG_HOME}/errors.log.%d{yyyy-MM-dd}.log.zip</FileNamePattern>
+            <MaxHistory>7</MaxHistory>
+        </rollingPolicy>
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符 -->
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{120} - %msg%n</pattern>
+        </layout>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter"><!-- 只打印错误日志 -->
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+    </appender>
+
+	<springProfile name="dev">
+		<logger name="com.baomidou.springboot" level="INFO" />
+        <logger name="com.alibaba" level="ERROR" />
+        <logger name="org.mybatis" level="ERROR" />
+        <logger name="org.apache" level="ERROR" />
+        <logger name="org.jboss.netty" level="ERROR"></logger>
+        <logger name="org.springframework" level="INFO"></logger>
+        <!--<logger name="com.wu.common.core.mybatis" level="ERROR"></logger>-->
+        <logger name="druid.sql.Statement" level="DEBUG" />
+        <logger name="com.baomidou.mybatisplus.plugins" level="ERROR"></logger>
+	</springProfile>
+
+	<springProfile name="sit">
+		<logger name="com.baomidou.springboot" level="WARN" />
+	</springProfile>
+
+	<springProfile name="uat">
+		<logger name="com.baomidou.springboot" level="ERROR" />
+	</springProfile>
+
+    <!-- 包扫描日志 -->
+    <logger name="com.baomidou.springboot" level="INFO" />
+    <logger name="com.alibaba" level="ERROR" />
+    <logger name="org.mybatis" level="ERROR" />
+    <logger name="org.apache" level="ERROR" />
+    <logger name="org.jboss.netty" level="ERROR"></logger>
+    <logger name="org.springframework" level="INFO"></logger>
+    <!--<logger name="com.wu.common.core.mybatis" level="ERROR"></logger>-->
+    <logger name="druid.sql.Statement" level="DEBUG" />
+    <logger name="com.baomidou.mybatisplus.plugins" level="ERROR"></logger>
+
+	<root level="INFO">
+		<appender-ref ref="STDOUT" />
+		<appender-ref ref="FILE" />
+		<appender-ref ref="ERRORFILE" />
+	</root>
+</configuration>

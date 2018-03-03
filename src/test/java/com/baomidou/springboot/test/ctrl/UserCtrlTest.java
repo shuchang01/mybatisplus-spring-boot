@@ -7,7 +7,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.alibaba.fastjson.JSONObject;
-import com.baomidou.springboot.Application;
+import com.baomidou.springboot.MybatisPlusDemoApplication;
 import com.baomidou.springboot.test.ctrl.base.TestBase;
 
 /**
@@ -19,7 +19,7 @@ import com.baomidou.springboot.test.ctrl.base.TestBase;
  * @date 2017/8/1
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringBootTest(classes = Application.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@SpringBootTest(classes = MybatisPlusDemoApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class UserCtrlTest extends TestBase {
 
     /**

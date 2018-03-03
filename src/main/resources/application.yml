@@ -72,4 +72,5 @@ mybatis-plus:
 
 #logging
 logging:
-  level: warn
+#  level: warn
+  config: classpath:logback-spring.xml
