@@ -76,8 +76,7 @@ public class FeedbackController {
     public Feedback getOne(@PathVariable("msgId") Integer msgId) {
         Feedback entity = new Feedback();
         entity.setMsgId(msgId);
-        EntityWrapper<Feedback> wrapper = new EntityWrapper<>();
-        wrapper.setEntity(entity);
+        EntityWrapper<Feedback> wrapper = new EntityWrapper<>(entity);
         return feedbackService.selectOne(wrapper);
     }
 
