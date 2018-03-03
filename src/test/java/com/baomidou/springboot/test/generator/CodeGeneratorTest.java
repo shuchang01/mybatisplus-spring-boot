@@ -68,8 +68,4 @@ public class CodeGeneratorTest {
                                 .setEntity("entity")
                 ).execute();
     }
-
-    private void generateByTables(String packageName, String... tableNames) {
-        generateByTables(true, packageName, tableNames);
-    }
 }

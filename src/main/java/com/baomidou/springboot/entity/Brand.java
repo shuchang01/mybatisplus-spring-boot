@@ -1,9 +1,11 @@
 package com.baomidou.springboot.entity;
 
 import com.baomidou.mybatisplus.annotations.TableField;
+import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableLogic;
 import com.baomidou.mybatisplus.annotations.TableName;
 import com.baomidou.mybatisplus.enums.FieldFill;
+import com.baomidou.mybatisplus.enums.IdType;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
@@ -24,7 +26,7 @@ import java.math.BigDecimal;
 public class Brand implements Serializable {
     private static final long serialVersionUID = 1L;
 
-//    @TableId(value = "id", type = IdType.AUTO)
+    @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
     private String name;
     private String listPicUrl;

@@ -1,6 +1,8 @@
 package com.baomidou.springboot.entity;
 
+import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableName;
+import com.baomidou.mybatisplus.enums.IdType;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -24,6 +26,7 @@ public class TenantInfo implements Serializable {
     /**
      * ID
      */
+    @TableId(value = "dbid", type = IdType.INPUT)
     private Long dbid;
     /**
      * 租户编码

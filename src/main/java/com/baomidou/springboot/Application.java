@@ -14,8 +14,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement
 @SpringBootApplication
 public class Application {
-
-    protected final static Logger logger = LoggerFactory.getLogger(Application.class);
+    private final static Logger logger = LoggerFactory.getLogger(Application.class);
 
     /**
      * <p>
@@ -39,8 +38,6 @@ public class Application {
         SpringApplication app = new SpringApplication(Application.class);
         app.setBannerMode(Banner.Mode.OFF);
         app.run(args);
-        logger.info("PortalApplication is success!");
-        System.err.println("sample started. http://localhost:8080/");
+        logger.info("mybatisplus-spring-boot project started success!!!");
     }
-
 }

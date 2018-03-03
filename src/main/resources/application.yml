@@ -26,7 +26,8 @@ spring:
 
   # mysql5.7.x
   datasource:
-    type: com.alibaba.druid.pool.DruidDataSource
+    type: com.zaxxer.hikari.HikariDataSource
+#    type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://localhost:3306/mshop_saas?characterEncoding=utf8&useUnicode=true&useSSL=false
     username: mshop
@@ -64,8 +65,11 @@ mybatis-plus:
   configuration:
     #下划线字段 转 驼峰属性
     map-underscore-to-camel-case: true
-    cache-enabled: false
-#    cache-enabled: true
+#    cache-enabled: true表示二级缓存可用，但是要开启话，需要在对应命名空间的Mapper.xml内配置cache节点
+    cache-enabled: true
+#    cache-enabled: false
+
+
 #logging
 logging:
   level: warn
