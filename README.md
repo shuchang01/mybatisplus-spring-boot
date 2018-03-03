@@ -11,9 +11,9 @@
 
 Mybatis Plus - Spring Boot Demo
 
-* boot version: 1.5.9.RELEASE
-* mp version: 2.1.9
-* database: h2(boot默认数据库，如需修改，请在application.properties中查看mysql配置)
+* Spring Boot version: 1.5.9.RELEASE
+* Mybatis-Plus version: 2.1.9
+* database: h2(Spring Boot默认数据库，如需修改，请在application.properties中查看mysql配置，推荐MySQL-5.7+)
 
 > mp技术讨论 QQ 群 576493122
 
