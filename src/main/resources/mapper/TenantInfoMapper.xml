@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.baomidou.springboot.mapper.TenantInfoMapper">
+
+    <!-- 开启二级缓存 -->
+    <!--<cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>-->
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.baomidou.springboot.entity.TenantInfo">
+        <id column="dbid" property="dbid" />
+        <result column="TENANT_CODE" property="tenantCode" />
+        <result column="TENANT_NAME" property="tenantName" />
+        <result column="TENANT_EMAIL" property="tenantEmail" />
+        <result column="CONTACT_NAME" property="contactName" />
+        <result column="CONTACT_MOBILE" property="contactMobile" />
+        <result column="STATUS" property="status" />
+        <result column="TENANT_SOURCE" property="tenantSource" />
+        <result column="AUDIT_STATUS" property="auditStatus" />
+        <result column="AUDIT_REMARK" property="auditRemark" />
+        <result column="AUDIT_DATE" property="auditDate" />
+        <result column="CREATED_BY" property="createdBy" />
+        <result column="CREATED_USER_NAME" property="createdUserName" />
+        <result column="CREATION_DATE" property="creationDate" />
+        <result column="LAST_UPDATED_BY" property="lastUpdatedBy" />
+        <result column="LAST_UPDATED_USER_NAME" property="lastUpdatedUserName" />
+        <result column="LAST_UPDATE_DATE" property="lastUpdateDate" />
+        <result column="VOID_FLAG" property="voidFlag" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        dbid, TENANT_CODE, TENANT_NAME, TENANT_EMAIL, CONTACT_NAME, CONTACT_MOBILE, STATUS, TENANT_SOURCE, AUDIT_STATUS, AUDIT_REMARK, AUDIT_DATE, CREATED_BY, CREATED_USER_NAME, CREATION_DATE, LAST_UPDATED_BY, LAST_UPDATED_USER_NAME, LAST_UPDATE_DATE, VOID_FLAG
+    </sql>
+
+</mapper>

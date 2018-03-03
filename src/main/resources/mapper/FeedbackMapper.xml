@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.baomidou.springboot.mapper.FeedbackMapper">
+    <!-- 开启二级缓存, application.yml中配置configuration: cache-enabled: true,
+         参考博文 https://my.oschina.net/zudajun/blog/747499
+     -->
+    <!--<cache eviction="FIFO" flushInterval="60000" size="512" readOnly="true" />-->
+    <!--<cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>-->
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.baomidou.springboot.entity.Feedback">
+        <id column="msg_id" property="msgId" />
+        <result column="parent_id" property="parentId" />
+        <result column="user_id" property="userId" />
+        <result column="user_name" property="userName" />
+        <result column="user_email" property="userEmail" />
+        <result column="msg_title" property="msgTitle" />
+        <result column="msg_type" property="msgType" />
+        <result column="msg_status" property="msgStatus" />
+        <result column="msg_content" property="msgContent" />
+        <result column="msg_time" property="msgTime" />
+        <result column="message_img" property="messageImg" />
+        <result column="order_id" property="orderId" />
+        <result column="msg_area" property="msgArea" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        msg_id, parent_id, user_id, user_name, user_email, msg_title, msg_type, msg_status, msg_content, msg_time, message_img, order_id, msg_area
+    </sql>
+
+    <!-- 根据ID查询唯一记录行 -->
+    <select id="selectOneById" parameterType="com.baomidou.springboot.entity.vo.FeedbackVO"
+            resultType="com.baomidou.springboot.entity.vo.FeedbackVO">
+        SELECT
+          <include refid="Base_Column_List" />
+        FROM t_feedback
+        WHERE msg_id = #{msgId}
+        limit 1
+    </select>
+
+</mapper>
