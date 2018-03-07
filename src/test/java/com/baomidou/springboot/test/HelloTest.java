@@ -10,5 +10,7 @@ public class HelloTest {
 
 //        org.apache.ibatis.executor.CachingExecutor.query()
 //        MetaObject
+//        com.baomidou.mybatisplus.MybatisDefaultParameterHandler
+//        org.apache.ibatis.scripting.defaults.DefaultParameterHandler
     }
 }
