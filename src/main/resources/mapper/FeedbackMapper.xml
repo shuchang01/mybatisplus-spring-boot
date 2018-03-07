@@ -4,7 +4,7 @@
     <!-- 开启二级缓存, application.yml中配置configuration: cache-enabled: true,
          参考博文 https://my.oschina.net/zudajun/blog/747499
      -->
-    <cache eviction="FIFO" flushInterval="60000" size="512" readOnly="true" />
+    <!--<cache eviction="FIFO" flushInterval="60000" size="512" readOnly="true" />-->
     <!--<cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>-->
 
     <!-- 通用查询映射结果 -->

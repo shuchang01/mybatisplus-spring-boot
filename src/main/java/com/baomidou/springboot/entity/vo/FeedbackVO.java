@@ -3,6 +3,8 @@ package com.baomidou.springboot.entity.vo;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * <p>
@@ -32,6 +34,6 @@ public class FeedbackVO implements Serializable {
     private String messageImg;
     private Integer orderId;
     private Integer msgArea;
-
-
+    /** FeedbackVO主键id集合 */
+    private List<Long> ids = new ArrayList<>();
 }

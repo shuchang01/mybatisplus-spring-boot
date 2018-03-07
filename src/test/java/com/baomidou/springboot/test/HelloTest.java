@@ -9,5 +9,6 @@ public class HelloTest {
 //        MapperProxyFactory
 
 //        org.apache.ibatis.executor.CachingExecutor.query()
+//        MetaObject
     }
 }

@@ -1,6 +1,7 @@
 package com.baomidou.springboot.controller;
 
 
+import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.plugins.Page;
 import com.baomidou.springboot.entity.Feedback;
@@ -11,6 +12,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * <p>
@@ -35,6 +39,25 @@ public class FeedbackController {
     public Page<Feedback> list() {
         return feedbackService.selectPage(new Page<>(1, 5));
 //        return brandService.selectPage(new Page<>(2, 5, "sort_order", false));
+    }
+
+    /**
+     * 分页 PAGE
+     */
+    @GetMapping("/listByIds")
+    public Object listByIds() {
+        FeedbackVO vo = new FeedbackVO();
+        List<Long> ids = new ArrayList<Long>() {
+            {
+                add(1L);
+                add(2L);
+            }
+        };// vo.getIds();
+        Object result = feedbackService.selectBatchIds(ids);
+        if (result != null) {
+            logger.info("=======>>>>result:{}", JSON.toJSONString(result, true));
+        }
+        return result;
     }
 
     /**
