@@ -34,7 +34,7 @@ public class MybatisPlusConfig {
 
         /*
          * 【测试多租户】 SQL 解析处理拦截器<br>
-         * 这里固定写成住户 1 实际情况你可以从cookie读取，因此数据看不到 【 麻花藤 】 这条记录（ 注意观察 SQL ）<br>
+         * 这里固定写成租户1 实际情况你可以从cookie读取，因此数据看不到 【 麻花藤 】 这条记录（ 注意观察 SQL ）<br>
          */
         /*
         List<ISqlParser> sqlParserList = new ArrayList<>();
@@ -47,7 +47,7 @@ public class MybatisPlusConfig {
 
             @Override
             public String getTenantIdColumn() {
-                return "tenant_id";
+                return "tenant_id"; // tnid
             }
 
             @Override
