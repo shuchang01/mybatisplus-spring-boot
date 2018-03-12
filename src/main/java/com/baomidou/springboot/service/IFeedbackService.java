@@ -14,4 +14,6 @@ import com.baomidou.springboot.entity.vo.FeedbackVO;
  */
 public interface IFeedbackService extends IService<Feedback> {
     FeedbackVO queryOneById(FeedbackVO vo);
+
+    boolean saveOrInsertOne(Feedback entity);
 }

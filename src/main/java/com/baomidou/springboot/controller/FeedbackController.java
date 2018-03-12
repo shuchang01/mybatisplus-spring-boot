@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.plugins.Page;
 import com.baomidou.springboot.entity.Feedback;
 import com.baomidou.springboot.entity.vo.FeedbackVO;
+import com.baomidou.springboot.exception.BaseException;
 import com.baomidou.springboot.service.IFeedbackService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -37,7 +38,7 @@ public class FeedbackController {
      */
     @GetMapping("/list")
     public Page<Feedback> list() {
-        return feedbackService.selectPage(new Page<>(1, 5));
+        return feedbackService.selectPage(new Page<>(1, 15));
 //        return brandService.selectPage(new Page<>(2, 5, "sort_order", false));
     }
 
@@ -74,11 +75,12 @@ public class FeedbackController {
 
     /**
      * 测试mybatis二级缓存，开启二级缓存, application.yml中配置configuration: cache-enabled: true,
-     * @param msgId Integer
-     * @return FeedbackVO
+     * @param
+     * @return
      */
-    @PostMapping("/{msgId}")
-    public void saveOrUpdateOneFeedback(@PathVariable("msgId") Integer msgId) {
+    @PostMapping("/saveOrUpdateOne")
+//    public void saveOrUpdateOneFeedback(@RequestBody FeedbackVO feedbackVO) {
+    public void saveOrUpdateOneFeedback(Integer msgId) {
         Feedback entity = new Feedback();
         entity.setMsgId(msgId);
         entity.setMsgContent("每当执行insert、update、delete，flushCache=true时，二级缓存都会被清空。真的吗？");
@@ -87,6 +89,12 @@ public class FeedbackController {
             feedbackService.updateById(entity);
         } else {
             // insert
+            entity.setMsgId(100);
+            try {
+                feedbackService.saveOrInsertOne(entity);
+            } catch (BaseException e) {
+                logger.error("=======error msg:{}", e.getMessage());
+            }
         }
     }
 

@@ -28,6 +28,10 @@
     <sql id="Base_Column_List">
         msg_id, parent_id, user_id, user_name, user_email, msg_title, msg_type, msg_status, msg_content, msg_time, message_img, order_id, msg_area
     </sql>
+    
+    <insert id="insert" parameterType="com.baomidou.springboot.entity.Feedback">
+        insert into t_feedback(msg_id, msg_content) values(#{msgId}, #{msgContent})
+    </insert>
 
     <!-- 根据ID查询唯一记录行 -->
     <select id="selectOneById" parameterType="com.baomidou.springboot.entity.vo.FeedbackVO"

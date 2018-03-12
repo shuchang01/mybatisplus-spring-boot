@@ -12,5 +12,7 @@ public class HelloTest {
 //        MetaObject
 //        com.baomidou.mybatisplus.MybatisDefaultParameterHandler
 //        org.apache.ibatis.scripting.defaults.DefaultParameterHandler
+//        LoggingCache
+//        ArithmeticException
     }
 }
