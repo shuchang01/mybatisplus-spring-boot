@@ -12,4 +12,4 @@
 /_svn/
 .project
 .classpath
-jrebel.xml
+/**/rebel.xml
