@@ -47,7 +47,7 @@ mybatis-plus:
     id-type: 0
     #字段策略 0:"忽略判断",1:"非 NULL 判断"),2:"非空判断"
     field-strategy: 2
-    #表名、字段名师傅哦使用下划线命名
+    #表名、字段名是否使用下划线命名
     db-column-underline: true
     #刷新mapper 调试神器
     refresh-mapper: true
