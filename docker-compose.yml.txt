@@ -1,0 +1,30 @@
+version: '2.2'
+services: 
+  tomcat8-jre8: 
+    image: daocloud.io/library/tomcat:8.0.44-jre8
+    ports:
+      - "18080:8080"
+    depends_on:
+      - mysql57x
+      - redis37x
+      - rabbitmq37x
+    links: 
+      - mysql57x
+      - redis37x
+      - rabbitmq37x
+  mysql57x: 
+    image: daocloud.io/library/mysql:5.7.19
+    ports:
+      - "13306:3306"
+    environment:
+      - MYSQL_DATABASE=db_docker_demo_dev
+      - MYSQL_ROOT_PASSWORD=123456
+  redis37x: 
+    image: daocloud.io/library/redis:3.2.8
+    ports:
+      - "16379:6379"
+  rabbitmq37x: 
+    image: rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
